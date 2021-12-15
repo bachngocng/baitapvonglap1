@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = 0;
+    let b = 1;
+    let tong = 0;
+    for (n = 0; n <= 20; n++) {
+        a = b;
+        b = tong;
+        tong = a + b;
+        console.log(a)
+        if (tong % 5 == 0) {
+            alert("số đầu tiên chia hết cho 5 là" + tong);
+            break;
+        }
+    }
+</script>
+</body>
+</html>

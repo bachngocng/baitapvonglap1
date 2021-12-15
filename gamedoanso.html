@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đoán xem</title>
+</head>
+<h1>Guess the number</h1>
+<body>
+<p>Nhập khoảng muốn đoán</p>
+<input type="number" placeholder="Nhập số đầu" id="firstNumber" value="">
+<input type="number" placeholder="Nhập số cuối" id="secondNumber" value="">
+<button onclick="pickNum()" id="random">Random</button>
+<br>
+<input type="number" id="number" placeholder="Nhập số bạn muốn đoán">Nhập số bạn muốn đoán.Bạn có 3 cơ hội</p>
+<button onclick="play()">Chơi</button>
+<button onclick="reset()">Chơi lại</button>
+<script>
+    let dem = 1;
+    let numberRandom;
+
+    function pickNum() {
+        let firstNum = parseInt(document.getElementById("firstNumber").value);
+        let secondNum = parseInt(document.getElementById("secondNumber").value);
+        let khoangchay = (secondNum - firstNum) + 1;
+        let number = Math.floor(Math.random() * khoangchay) + firstNum;
+        numberRandom = number
+        alert(number)
+    }
+
+    function play() {
+        let numberGuess = parseInt(document.getElementById("number").value);
+        if (dem > 3) {
+            alert("Bạn đã hết cơ hội");
+        } else {
+            if (numberRandom === numberGuess) {
+                alert("chúc mừng");
+            } else if (numberGuess > numberRandom) {
+                alert("đoán số nhỏ hơn đi");
+                dem++;
+            } else {
+                alert("đoán số lớn hơn đi");
+                dem++;
+            }
+        }
+
+    }
+
+    function reset() {
+        dem = 1;
+        document.getElementById("firstNumber").value = "";
+        document.getElementById("secondNumberNumber").value = "";
+        document.getElementById("number").value;
+    }
+</script>
+</body>
+</html>
